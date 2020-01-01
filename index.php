@@ -53,14 +53,14 @@ if(isset($_POST["cari"])) {
             <td><?php echo $i; ?></td>
             <td>
                 <a href="ubah.php?id=<?= $row["id"]; ?>">Ubah</a> |
-                <a href="hapus.php?id=<? echo $row["id"]; ?>"onclick="return confirm('Anda yakin ingin menghapus?');">hapus</a>
+                <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Anda yakin ingin menghapus?');">hapus</a>
             </td>
-            <td><img src="img/<? echo $row["gambar"]; ?>" alt="<? echo $row["judul"]; ?>" title="<? echo $row["judul"]; ?>" width="50 px"></td>
-            <td><? echo $row["judul"]; ?></td>
-            <td><? echo $row["kategori"]; ?></td>
-            <td><? echo $row["pengarang"]; ?></td>
-            <td><? echo $row["tahun_terbit"]; ?></td>
-            <td><? echo $row["penerbit"]; ?></td>
+            <td><img src="img/<?= $row["gambar"]; ?>" alt="<?= $row["judul"]; ?>" title="<?= $row["judul"]; ?>" width="50 px"></td>
+            <td><?= $row["judul"]; ?></td>
+            <td><?= $row["kategori"]; ?></td>
+            <td><?= $row["pengarang"]; ?></td>
+            <td><?= $row["tahun_terbit"]; ?></td>
+            <td><?= $row["penerbit"]; ?></td>
         </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

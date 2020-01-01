@@ -75,7 +75,7 @@ function upload() {
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, 'img/' . $namaFile);
+    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
 
     return $namaFileBaru;
 }
@@ -95,7 +95,8 @@ function ubah($data) {
     $pengarang = htmlspecialchars($data["pengarang"]);
     $tahun_terbit = htmlspecialchars($data["tahun_terbit"]);
     $penerbit = htmlspecialchars($data["penerbit"]);
-    $gambarLama = htmlspecialchars($data["gambarLama"]);
+    $gambarLama = $data["gambarLama"];
+    $gambar = $data["gambar"];
 
     // cek apakah user pilih gamabr baru atau tidak
     if($_FILES['gambar']['error'] === 4) {
@@ -103,10 +104,8 @@ function ubah($data) {
     } else {
         $gambar = upload();
     }
-    
-    $gambar = htmlspecialchars($data["gambar"]);
 
-     // query insert data
+     // query update data
     $query = "UPDATE katalog_buku SET
                 judul = '$judul',
                 kategori = '$kategori',
